@@ -1,0 +1,2 @@
+<iframe src="<?php echo base_url();?>data_aset/cetakdataaset/<?php echo $ru1; ?>/<?php echo $ru2; ?>/<?php echo $ru3; ?>/<?php echo $ru4; ?>/<?php echo $ru5; ?>/<?php echo $ru6; ?>" style="display: block" name="iframeku" id="frame" class="iframeku col-sm-12" frameborder="0" height="720" ></iframe>
+            

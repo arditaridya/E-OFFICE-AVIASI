@@ -1,0 +1,249 @@
+<?php
+$html = '
+<style>
+body{
+	font-size: 12px;
+	/*font-family:courier;*/
+	font-family:  "Times New Roman", Courier, Arial, Georgia, Serif;
+}
+#tab1 {
+	border-left: solid 1px black;
+	border-top: solid 1px black;
+	border-spacing:0;
+	border-collapse: collapse; 
+}
+#tab1 td {
+	border-right: solid 1px black;
+	border-bottom: solid 1px black;
+}
+</style>
+</head>
+<body>
+<htmlpageheader name="head1">
+<p><b>TENTARA NASIONAL INDONESIA<br>MARKAS BESAR ANGKATAN DARAT</b></p>
+</htmlpageheader>
+<sethtmlpageheader name="head1" value="on" show-this-page="1">
+<table style="text-align: left; width: 100%;" border="0" cellpadding="0" cellspacing="0" >
+  <thead>
+	<tr>
+         
+         <td style="vertical-align: top; text-align: center;"><b>LAPORAN BULANAN KEKUATAN MATERIEL ANGKATAN DARAT<br>KOMODITI : SENJATA</b></td>
+ 
+     </tr>
+    
+  </thead>
+</table>
+<br>
+<br>
+';
+$col = 5;
+$html .= '
+	<table border="1" cellspacing="0" cellpadding="0" width="100%" id="tab1" repeat_header="1">
+		<tr>
+			<th rowspan="3">No</th>
+			<th rowspan="3">JENIS, NEG. ASAL &amp; TH.BUAT</th>
+			<th rowspan="3">KONDISI</th>
+			<th colspan="'.$col.'">KESATUAN</th>
+		</tr>
+		<tr>
+		';
+			foreach ($kesatuan as $key => $kes) {
+		$html .='
+			<th colspan="2">'.$kes->kesatuan.'</th>
+			';
+			}
+		$html .='
+		</tr>
+		<tr>
+		';
+			foreach ($kesatuan as $key => $kes) {
+		$html .='
+			<td>KAI</td>
+			<td>DIA</td>
+			';
+			}
+		$html .='
+		</tr>
+		<tr bgcolor="#FF9900">
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		';
+			foreach ($kesatuan as $key => $kes) {
+		$html .='
+			<td></td>
+			<td></td>
+			';
+			}
+		$html .='
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>B</td>
+		';
+			foreach ($kesatuan as $key => $kes) {
+		$html .='
+			<td></td>
+			<td></td>
+			';
+			}
+		$html .='
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>RR</td>
+		';
+			foreach ($kesatuan as $key => $kes) {
+		$html .='
+			<td></td>
+			<td></td>
+			';
+			}
+		$html .='
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>RB</td>
+		';
+			foreach ($kesatuan as $key => $kes) {
+		$html .='
+			<td></td>
+			<td></td>
+			';
+			}
+		$html .='
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>JML</td>
+		';
+			foreach ($kesatuan as $key => $kes) {
+		$html .='
+			<td></td>
+			<td></td>
+			';
+			}
+		$html .='
+		</tr>
+	</table>
+
+';
+
+
+
+
+
+
+
+
+foreach ($fungsi as $key => $values) { 
+$html .= '
+<p>FUNGSI : <b>'.$values->fungsi.'</b></p>
+<br>
+<table border="1" cellspacing="0" cellpadding="0" width="100%" id="tab1" repeat_header="1">
+				<tr>
+				<td align="center" rowspan="2"><b>NO URUT</b></td>
+				<td align="center" rowspan="2"><b>NAMA SENJATA</b></td>
+				<td align="center" rowspan="2"><b>KESATUAN</b></td>
+				<td align="center" colspan="3"><b>PEMAKAIAN</b></td>
+				<td align="center" rowspan="2"><b>JUMLAH DI SATKAI</b></td>
+				<td align="center" colspan="3"><b>PERSEDIAAN</b></td>
+				<td align="center" rowspan="2"><b>JUMLAH DI SEDIA</b></td>
+				<td align="center" rowspan="2"><b>JML B</b></td>
+				<td align="center" rowspan="2"><b>JML RR</b></td>
+				<td align="center" rowspan="2"><b>JML RB</b></td>
+				<td align="center" rowspan="2"><b>JML TOTAL</b></td>
+				</tr>
+
+				<tr>
+				<td align="center"><b>B</b></td>
+				<td align="center"><b>RR</b></td>
+				<td align="center"><b>RB</b></td>
+			
+				<td align="center"><b>B</b></td>
+				<td align="center"><b>RR</b></td>
+				<td align="center"><b>RB</b></td>
+				
+				
+				</tr>
+				<tr bgcolor="#FF9900">
+				<td align="center">1</td>
+				<td align="center">2</td>
+				<td align="center">3</td>
+				<td align="center">4</td>
+				<td align="center">5</td>
+				<td align="center">6</td>
+				<td align="center">7</td>
+				<td align="center">8</td>
+				<td align="center">9</td>
+				<td align="center">10</td>
+				<td align="center">12</td>
+				<td align="center">11</td>
+				<td align="center">12</td>
+				<td align="center">13</td>
+				<td align="center">14</td>
+				</tr>
+				
+				
+				';
+				$i = 0;
+				foreach ($model as $key => $value) { 
+				if ($values->fungsi==$value->fungsi){
+				$i++;
+				$kai = $value->b_kia + $value->rr_kia + $value->rb_kia ;
+				$dia = $value->b_dia + $value->rr_dia + $value->rb_dia ;	
+				$b = $value->b_kia + $value->b_dia;
+				$rr = $value->rr_kia + $value->rr_dia;
+				$rb = $value->rb_kia + $value->rb_dia;
+				$total = $kai + $dia ;
+				
+					$html .= '
+				
+				<tr>
+				<td align="center">'.$i.'</td>
+				<td align="center">'.$value->barang.'</td>
+				<td align="center">'.$value->kesatuan.'</td>
+				<td align="center">'.$value->b_kia.'</td>
+				<td align="center">'.$value->rr_kia.'</td>
+				<td align="center">'.$value->rb_kia.'</td>
+				<td align="center">'.$kai.'</td>
+				<td align="center">'.$value->b_dia.'</td>
+				<td align="center">'.$value->rr_dia.'</td>
+				<td align="center">'.$value->rb_dia.'</td>
+				<td align="center">'.$dia.'</td>
+				<td align="center">'.$b.'</td>
+				<td align="center">'.$rr.'</td>
+				<td align="center">'.$rb.'</td>
+				<td align="center">'.$total.'</td>
+				</tr>
+						';
+						$i++;
+						}}
+				$html .= '
+</table>
+
+	';
+						}
+				$html .= '
+
+<br>
+<br>
+<br>
+';
+
+//echo $html;die();
+
+require 'assets/MPDF60/mpdf.php';
+$mypdf = new mPDF('', 'Legal', 0, '', 12.7, 12.7, 46, 0, 12.7, 12.7,'L');
+$mypdf->AddPage('L');
+$mypdf->SetDisplayMode('fullpage');
+$mypdf->debug=true;
+// $mypdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822));
+$mypdf->WriteHTML($html);
+$mypdf->Output();
+
+?>
